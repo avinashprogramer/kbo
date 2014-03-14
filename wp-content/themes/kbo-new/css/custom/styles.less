@@ -1,0 +1,547 @@
+@import "bootstrap.less";
+
+.main_menu {
+	background: @bodyBackground;
+	> ul {
+		width: 1100px;
+		float: left;
+		> li {
+			float: left;
+			text-align: center;
+			> a {
+				background-image: url("../../images/icon_sprite.png");
+				background-color: transparent;
+				display: block;
+				#font > .Century_Gothic (15px, 21px); 
+				height: 25px;
+				min-width: 80px;
+				padding: 60px 0px 0px 0px;
+				> .logo_dark {
+					display: block;
+				}
+				> .logo_white {
+					display: none;
+				}
+			}
+			&.active, &:hover {
+				background-color: @html_bk_color;
+				> a {
+					color : @white;
+					> .logo_dark {
+						display: none;
+					}
+					> .logo_white {
+						display: block;
+					}
+				}
+			}
+			&.home_logo {
+				> a {
+					padding: 20px 30px;
+					background: none;
+					height: auto;
+				}
+			}
+			&.polls {
+				> a {
+					background-position: 13px 12px;
+				}
+			}
+			&.update {
+				> a {
+					background-position: -86px 12px;
+				}
+			}
+			&.articles {
+				> a {
+					background-position: -175px 12px;
+				}
+			}
+			&.burning_issue {
+				> a {
+					background-position: -287px 12px;
+				}
+			}
+			&.about_us {
+				float: right;
+				> a {
+					background-position: -371px 12px;
+				}
+			}
+
+		}
+	}
+	> .profile_img {
+		float: right;
+		width: 84px;
+		height: 84px;
+		> a {
+			display: block;
+			> img {
+				width: 84px;
+				height: 84px;
+				display: block;
+			}
+		}
+		> ul {
+			> li {
+
+			}
+		}
+	}
+}
+.main {
+	background: @html_bk_color;
+}
+/*to remove on deployment*/
+.page_list {
+	background: @bodyBackground;
+	margin: 50px;
+	width: 400px;
+	display: block;
+	> li {
+		display: block;
+	}
+}
+
+/*to remove on deployment*/
+.social_share {
+	position: absolute;
+	height: 50px;
+	width: 200px;
+}
+/* home page sections */
+.home_section_wrap {
+	width: 100%;
+	> li {
+		float: left;
+		padding: 10px 5.8%;
+    	width: 36.4%;
+		height: 275px;
+		margin-top: 40px;
+		background: @bodyBackground;
+		&.odd {
+			margin-right: 4%;
+		}
+	}
+}
+.home_sliders {
+	position: relative;
+	height: 275px;
+	> .section_logo {
+		background: url("../../images/icon_sprite.png") no-repeat 0px 0px transparent;
+		position: absolute;
+		left: -45px;
+		top: 3px;
+		height: 26px;
+		width: 26px;
+	}
+	&.poll_section {
+		> .section_logo {
+			background-position: -17px -14px;
+		}
+	}
+	&.update_section {
+		> .section_logo {
+			background-position: -106px -14px;
+		}
+	}
+	&.article_section {
+		> .section_logo {
+			background-position: -201px -14px;
+		}
+	}
+	&.burning_issue_section {
+		> .section_logo {
+			background-position: -311px -14px;
+		}
+	}
+	> h3 {
+		#font > .Century_Gothic (25px, 31px, bold);
+		color: @black; 
+	}
+	> .prev, > .next {
+		background: url("../../images/icon_sprite.png") no-repeat 0px 0px transparent;
+		width: 35px;
+		height: 70px;
+		position: absolute;
+		top: 50%;
+		margin-top: -35px;
+		cursor: pointer;
+	}
+	> .prev {
+		background-position: -6px -75px;
+		left: -55px;
+	}
+	> .next {
+		background-position: -92px -75px;
+		right: -55px;
+	}
+
+}
+.cycle_wrap {
+	padding: 10px 0px 0px 0px;
+	width: 100%;
+	height: 241px;
+	> li {
+		width: 100%;
+		height: 241px;
+		> .section_elm_img {
+			width: 100px;
+			height: 100px;
+			float: left;
+			padding: 0px 15px 10px 0px;
+		}
+		> h4, .poll_question {
+			#font > .Century_Gothic (24px, 30px, 500);
+			color: @black;
+			padding-bottom: 20px;
+			min-height: 52px;
+			> a {
+				color: @black;
+				&:hover {
+					.opacity(50);
+				}
+			}
+		}
+		> h5 {
+			#font > .Century_Gothic (20px, 26px);
+			color: @black;
+			padding-bottom: 15px;
+		}
+
+	}
+}
+.poll_answer_wrap {
+	padding: 0px 100px 0px 0px;
+	> li {
+		background: @poll_ans_bk;
+		padding: 2px 10px;
+		margin-bottom: 3px;
+		color: @black;
+		#font > .Century_Gothic (17px, 35px);
+		position: relative;
+		z-index: 1;
+		input {
+			position: absolute;
+			.opacity(0);
+		}
+		> label {
+			cursor: pointer;
+			line-height: 36px;
+			margin: 0px;
+		}
+		> a {
+			color: @black;
+			#font > .Century_Gothic (17px, 23px);
+		}
+		> .pollbar {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			bottom: 0px;
+			background: url("../../images/vote_percent_bk.png") repeat 0px 0px transparent;
+			z-index: -1;
+			height: auto;
+			border: none;
+		}
+	}
+}
+.cycle-slide {
+	.wp-polls-ans {
+		position: relative;
+		> .vote_btn {
+			position: absolute;
+			right: 10px;
+			top: 60px;
+		}
+		> .view_result_link {
+			display: none;
+		}
+		> .voter_count {
+			position: absolute;
+			right: 2px;
+			bottom: 10px;
+		}
+	}
+}
+/* home page sections ends */
+
+/* archive page starts*/
+.archive_post_container {
+	padding: 40px 0px 0px;
+}
+.archive_posts_wrap_out {
+	width: 870px;
+	padding: 0px 0px 0px 30px;
+	float: left;
+}
+.poll_posts_wrap {
+	.post_icon {
+		background-position: -17px -14px;
+	}
+}
+.update_posts_wrap {
+	.post_icon {
+		background-position: -105px -14px;
+	}
+}
+.article_posts_wrap {
+	.post_icon {
+		background-position: -201px -14px;
+	}
+}
+.burning_issue_posts_wrap {
+	.post_icon {
+		background-position: -312px -14px;
+	}
+}
+.archive_posts_wrap {
+	width: 100%;
+	> li {
+		position: relative;
+		padding-bottom: 30px;
+		> .post_icon {
+			background-image: url("../../images/icon_sprite.png");
+			background-color: transparent;
+			position: absolute;
+			left: 0px;
+			top: 5px;
+			height: 26px;
+			width: 26px;
+		}
+	}
+}
+.post_heading {
+	color: @white;
+	#font > .Century_Gothic (24px, 30px);
+	padding: 0px 20px 10px 40px;
+	> a {
+		color: @white;
+		&:hover {
+			.opacity(50);
+		}
+	}
+}
+.post_date {
+	color: @date_color;
+	#font > .Century_Gothic (18px, 24px);
+	padding: 0px 20px 10px 40px;
+	> .author_name {
+		color: @white;
+		padding: 0px 5px;
+	}
+}
+.post_breif_detail {
+	background: @post_dtl_bk;
+	padding-bottom: 40px;
+	position: relative;
+	height: 150px;
+	width: 100%;
+	> img {
+		height: 140px;
+		float: left;
+		max-width: 195px;
+		padding: 5px 25px 5px 5px;
+	}
+	> p {
+		color: @black;
+		#font > .Century_Gothic (21px, 27px);
+		padding: 10px;
+	}
+	> .cont_read_link {
+		bottom: 10px;
+		color: @black;
+		#font > .Century_Gothic (21px, 27px);
+		position: absolute;
+		right: 15px;
+		&:hover {
+			.opacity(50);
+		}
+	}
+}
+
+.archive_sidebar {
+	float: right;
+	width: 350px;
+	background: @archive_head_bk;
+	.section_heading {
+		text-align: center;
+	}
+}
+.section_heading {
+	color: @black;
+	#font > .Century_Gothic (24px, 30px);
+	padding-top: 10px;
+}
+.archive_sort_type {
+	padding: 10px 10px 0px;
+	text-align: left;
+	> span {
+		color: @black;
+		padding: 20px 35px 0px 20px;
+		#font > .Century_Gothic (20px, 26px);
+		float: left;
+	}
+	> a {
+		text-align: center;
+		float: left;
+		color: @black;
+		padding: 40px 0px 5px;
+		width: 54px;
+		#font > .Century_Gothic (10px, 14px);
+		background-image: url("../../images/icon_sprite.png");
+		background-color: transparent;	
+		&.date {
+			background-position: -458px -10px;
+		}
+		&.popular {
+			background-position: -560px -10px;
+		}
+		&.active, &:hover {
+			background-color: @archive_body_bk;
+		}
+	}
+}
+.archive_link_list {
+	background-color: @archive_body_bk;
+	padding: 10px 20px;
+	> li {
+		padding-bottom: 7px;
+		> a {
+			color: @black;
+			#font > .Century_Gothic (13px, 15px);
+			&:hover {
+				.opacity(50);
+			}
+		}
+	}
+}
+/* archive page ends*/
+
+/* individual pages */
+.individual_wrap_out {
+	width: 870px;
+	padding: 0px 0px 0px 30px;
+	float: left;
+}
+.individual_posts_wrap {
+	width: 100%;
+	position: relative;
+	padding-bottom: 30px;
+	> .post_icon {
+		background-image: url("../../images/icon_sprite.png");
+		background-color: transparent;
+		position: absolute;
+		left: 0px;
+		top: 5px;
+		height: 26px;
+		width: 26px;
+	}
+}
+.post_detail {
+	background: @post_dtl_bk;
+	padding: 20px 2%;
+	width: 96%;
+	position: relative;
+	> img {
+		float: left;
+		max-height: 450px;
+		max-width: 450px;
+		padding: 0px 20px 0px 0px;
+	}
+	> p {
+		color: @black;
+		#font > .Century_Gothic (21px, 27px);
+		float: left;
+		padding: 10px;
+	}
+	> .social_share {
+		right: 20px;
+		top: 20px;
+	}
+}
+
+/* individual pages ends */
+.comment_wrap {
+	background: @comment_body_bk;
+	margin: 30px 0px;
+	padding: 15px;
+	> .comment {
+		background: @comment_bk;
+		padding: 10px 10px 25px;
+		margin-bottom: 15px;
+		> .comment_body {
+			> .comment_name {
+				color: @black;
+				#font > .Century_Gothic (27px, 33px, 500);
+				padding-bottom: 10px;
+				.text-ellipsis();
+			}
+			> .comment_date {
+				color: @black;
+				#font > .Century_Gothic (10px, 14px);
+				padding-bottom: 10px;
+				.text-ellipsis();
+			}
+			> .comment_txt {
+				color: @black;
+				#font > .Century_Gothic (16px, 20px);
+				.text-ellipsis();
+			}
+		}
+
+	}
+}
+
+.comment_form_wrap {
+	background: @comment_body_bk;
+	padding: 15px;
+}
+.comment_respond {
+	> .comment_head {
+		color: @black;
+		#font > .Century_Gothic (27px, 33px, 500);
+		padding-bottom: 20px;
+	}
+}
+.comment-form {
+	> p {
+		float: left;
+    	width: 100%;
+		> label {
+		    float: left;
+		    margin-right: 30px;
+		    text-align: right;
+		    width: 150px;
+		    > span {
+		    	color: @red;
+		    }
+		}
+		> input {
+			float: left;
+			width: 250px;
+		}
+		> textarea {
+			float: left;
+			resize: none;
+			width: 400px;
+			height: 200px;
+		}
+		&.form-submit {
+			> input {
+				background: @comment_bk;
+				border: none;
+				margin-left: 180px;
+				width: 100px;
+				height: 30px;
+				&:active, &:hover {
+					background: @post_dtl_bk;
+				}
+			}
+		}
+	}
+}
+.modal_custom {
+	display: none;
+}

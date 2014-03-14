@@ -1,0 +1,108 @@
+// Custom Mixxins File
+
+.mix_border(@top-color, @bottom-color,@top-width:1px, @bottom-width:1px, @top-padding:0px, @bottom-padding:0px) {
+    border-top: @top-width solid @top-color;
+    border-bottom: @bottom-width solid @bottom-color;
+    padding-top: @top-padding;
+    padding-bottom: @bottom-padding;
+}
+.text-ellipsis() {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.placeholder(@color: @placeholderText) {
+    &:-moz-placeholder {
+        color: @color;
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+    }
+    &::-webkit-input-placeholder {
+        color: @color;
+    }
+    &.watermark {
+        color: @color;
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+    }
+}
+
+// FONTS
+// --------------------------------------------------
+
+#font {
+    #family {
+        .proxima-nova-regular () {
+            font-family: @proximaNovaRegular;
+            font-weight: @fontWeightRegular;
+        }
+        .proxima-nova-regular-italic () {
+            font-family: @proximaNovaRegularIt;
+            font-weight: @fontWeightRegular;
+        }
+        .proxima-nova-light () {
+            font-family: @proximaNovaLight;
+            font-weight: @fontWeightLight;
+        }
+        .proxima-nova-light-italic () {
+            font-family: @proximaNovaLightIt;
+            font-weight: @fontWeightLight;
+        }
+        .proxima-nova-semi-bold () {
+            font-family: @proximaNovaSemiBold;
+            font-weight: @fontWeightSemiBold;
+        }
+        .proxima-nova-semi-bold-italic () {
+            font-family: @proximaNovaSemiBoldIt;
+            font-weight: @fontWeightSemiBold;
+        }
+        .proxima-nova-bold () {
+            font-family: @proximaNovaBold;
+            font-weight: @fontWeightBold;
+        }
+        .helvetica () {
+            font-family: @helvetica;
+            font-weight: @fontWeightLight;
+        }
+    }
+    .custom_shorthand(@size: @baseFontSize,@lineHeight: @baseLineHeight, @style:normal) {
+        font-size: @size;
+        line-height: @lineHeight;
+        font-style: @style;
+    }
+    .proxima-nova-regular (@size: @baseFontSize,@lineHeight: @baseLineHeight, @style:normal) {
+        #font > #family > .proxima-nova-regular;
+        #font > .custom_shorthand(@size, @lineHeight, @style);
+    }
+    .proxima-nova-regular-italic (@size: @baseFontSize,@lineHeight: @baseLineHeight, @style:italic) {
+        #font > #family > .proxima-nova-regular-italic;
+        #font > .custom_shorthand(@size, @lineHeight, @style);
+    }
+    .proxima-nova-light (@size: @baseFontSize, @lineHeight: @baseLineHeight, @style:normal) {
+        #font > #family > .proxima-nova-light;
+        #font > .custom_shorthand(@size, @lineHeight, @style);
+    }
+    .proxima-nova-light-italic (@size: @baseFontSize, @lineHeight: @baseLineHeight, @style:italic) {
+        #font > #family > .proxima-nova-light-italic;
+        #font > .custom_shorthand(@size, @lineHeight, @style);
+    }
+    .proxima-nova-semibold (@size: @baseFontSize, @lineHeight: @baseLineHeight, @style:normal) {
+        #font > #family > .proxima-nova-semi-bold;
+        #font > .custom_shorthand(@size, @lineHeight, @style);
+    }
+    .proxima-nova-semibold-italic (@size: @baseFontSize, @lineHeight: @baseLineHeight, @style:italic) {
+        #font > #family > .proxima-nova-semi-bold-italic;
+        #font > .custom_shorthand(@size, @lineHeight, @style);
+    }
+    .proxima-nova-bold (@size: @baseFontSize, @lineHeight: @baseLineHeight, @style:normal) {
+        #font > #family > .proxima-nova-bold;
+        #font > .custom_shorthand(@size, @lineHeight, @style);
+    }
+    .helvetica (@size: @baseFontSize,@lineHeight: @baseLineHeight, @style:normal) {
+        #font > #family > .helvetica;
+        #font > .custom_shorthand(@size, @lineHeight, @style);
+    }
+
+}

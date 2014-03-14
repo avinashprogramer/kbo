@@ -1,0 +1,110 @@
+html {background: @html_bk_color;}
+ul {margin: 0px;}
+ul, ol, li { list-style-type: none; }
+a {
+    outline: none;
+    #font > #family > .Century_Gothic;
+}
+a:hover, a:focus, a:active {
+  text-decoration: none;
+  outline: none;
+}
+body {
+  font-weight: lighter;
+  #font > .Century_Gothic(16px, 22px);
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  text-rendering: auto;
+}
+p {
+  margin: 0px;
+}
+label {
+  cursor: default;
+  &.checkbox {
+    cursor: pointer;
+  }
+}
+.container {
+    width: 1280px;
+}
+
+//forms
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  #font > .Century_Gothic (18px, 24px);
+  .border-radius(4px);
+  color: #999;
+  .placeholder();
+  height: auto;
+}
+.control-group {
+    &.error {
+        textarea,
+        input[type="text"],
+        input[type="password"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        input[type="date"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"],
+        input[type="number"],
+        input[type="email"],
+        input[type="url"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="color"],
+        .uneditable-input {
+            .placeholder(@errorText);
+        }
+    }
+}
+
+.progress .bar {
+  position: relative;
+}
+.modal-backdrop {
+  background-color: #E2E2E2;
+}
+.modal-backdrop,.modal-backdrop.fade.in {
+  .opacity(50);
+}
+.centered {
+    text-align: center;
+}
+.btn-primary {}
+.dark-colored {
+  background-color: @bg-color-green;
+}
+.light-colored {
+  background-color: @green-7EC142;
+}
+.colored {
+  background-color: @white-F7F7F7;
+}
+.divider-border {
+  border-bottom: 2px solid @grey-c9cacb;
+}
+.divider-border-small {
+  border-bottom: 1px solid @grey-939598;
+}
+.span5by12 {
+  width: 170px;
+}
