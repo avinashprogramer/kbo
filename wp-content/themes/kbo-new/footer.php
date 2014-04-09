@@ -1,9 +1,8 @@
 <?php
 /**
- * The template for displaying the footer.
+ * The template for displaying the footer
  *
- * Contains footer content and the closing of the
- * #main and #page div elements.
+ * Contains footer content and the closing of the #main and #page div elements.
  *
  * @package WordPress
  * @subpackage Twenty_Fourteen
@@ -14,5 +13,6 @@
             
         </footer>
     </div>
+    <?php wp_footer(); ?>
 </body>
 </html>

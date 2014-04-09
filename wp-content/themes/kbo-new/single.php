@@ -1,77 +1,95 @@
-<?php require_once('header.php'); ?>
-        <div class="main homepage">
-            <div class="container archive_post_container">
-                <div class="individual_wrap_out">
-                	<div class="individual_posts_wrap article_posts_wrap">
-            		    <span class="post_icon"></span>
-                        <h4 class="post_heading">Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth.</h4>
-                        <h6 class="post_date">by <span class="author_name">Admin</span> 28 Feb, 2014.</h6>
-                        <div class="post_detail clearfix">
-                            <div class="social_share"></div>
-                            <img src="images/avatar_84x83.png">
-                            <p>Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth </p>
-                            <p>Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth </p>
-                        </div>
-                        <div class="individual_post_poll_wrap">
-
-                        </div>
-                        <ul class="comment_wrap">
-                            <li class="comment">
-                                <div class="comment_body">
-                                    <p class="comment_name">Test name</p>
-                                    <p class="comment_date">February 16, 2014 at 12:05 PM</p>
-                                    <p class="comment_txt">Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth </p>
-                                </div>
-                            </li>
-                            <li class="comment">
-                                <div class="comment_body">
-                                    <p class="comment_name">Test name</p>
-                                    <p class="comment_date">February 16, 2014 at 12:05 PM</p>
-                                    <p class="comment_txt">Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth Indian democracy needs more thrust from youth </p>
-                                </div>
-                            </li>
-
-                        </ul>
-                        <div class="comment_form_wrap">
-                            <div class="comment_respond">
-                                <h3 class="comment_head">Leave Your Comment</h3>
-                                <form class="comment-form clearfix">
-                                    <p class="comment-form-author">
-                                        <label>Name <span class="required">*</span></label>
-                                        <input type="text" name="author">
-                                    </p>
-                                    <p class="comment-form-email">
-                                        <label>Email <span class="required">*</span></label>
-                                        <input type="email"name="email">
-                                    </p>
-                                    <p class="comment-form-comment">
-                                        <label>Comment</label>
-                                        <textarea rows="8" cols="45" name="comment" id="comment"></textarea>
-                                    </p>
-                                    <p class="form-submit">
-                                        <input type="submit" value="Comment" name="submit">
-                                    </p>
-                                </form>
-                            </div>
-                        </div>
+<?php
+/**
+* @package WordPress
+* @subpackage Default_Theme
+*/
+ 
+get_header();
+?>
+ 
+<div class="main homepage">
+    <div class="container archive_post_container">
+        <div class="individual_wrap_out">
+            <div class="individual_posts_wrap <?php echo get_post_type(); ?>_posts_wrap">
+                <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                    <!-- <div>
+                        <div><?php previous_post_link('&laquo; %link') ?></div>
+                        <div><?php next_post_link('%link &raquo;') ?></div>
+                    </div> -->
+                    <span class="post_icon"></span>
+                    <h4 class="post_heading"><?php the_title(); ?></h4>
+                    <h6 class="post_date">by <span class="author_name">Admin</span> 28 Feb, 2014.</h6>
+                    <div class="post_detail clearfix">
+                        <div class="social_share"></div>
+                        <?php if ( has_post_thumbnail() ) {
+                            echo get_the_post_thumbnail(get_the_id(), 'thumbnail');
+                        } ?>
+                        <?php the_content('Read the rest of this entry &raquo;');
+                            if(get_post_type() == "polls"){
+                                $poll_no = simple_fields_get_post_group_values(get_the_id(), "poll_id", true, 2);
+                                    echo '<ul class="cycle_wrap cycle-slide"><li>';
+                                    get_poll($poll_no[0][poll_number]);
+                                    echo '</li></ul>';   
+                            }
+                            else {
+                                $poll_no_checkbox = simple_fields_get_post_group_values(get_the_id(), "poll_id_checkbox", true, 2);
+                                if($poll_no_checkbox[0][show_poll]){
+                                    echo '<ul class="cycle_wrap cycle-slide" style="border-top: 2px dashed #FFFFFF; margin-top: 30px;"><li>';
+                                    get_poll($poll_no_checkbox[0][poll_number]);
+                                    echo '</li></ul>';
+                                }
+                            }
+                        ?>
                     </div>
-                </div>
-                <div class="archive_sidebar">
-                	<h3 class="section_heading">Archive</h3>
-                	<p class="archive_sort_type clearfix">
-                		<span>Sort By: </span>
-                		<a class="date active" href="#">Date</a>
-                		<a class="popular" href="#">Popular</a>
-                	</p>
-                	<ul class="archive_link_list">
-                		<li><a href="#">News headline link in sorted order News headline link in sorted order.</a></li>
-                		<li><a href="#">News headline link in sorted order News headline link in sorted order.</a></li>
-                		<li><a href="#">News headline link in sorted order News headline link in sorted order.</a></li>
-                		<li><a href="#">News headline link in sorted order News headline link in sorted order.</a></li>
-                		<li><a href="#">News headline link in sorted order News headline link in sorted order.</a></li>
-                		<li><a href="#">News headline link in sorted order News headline link in sorted order.</a></li>
-                	</ul>
-                </div>
+                <?php endwhile; else: ?>
+                    <p>Sorry, no <?php echo get_post_type(); ?> matched your criteria.</p>
+                <?php endif; ?>
+                <?php comments_template(); ?>
+            </div>
+
+            <div class="archive_sidebar">
+                <h3 class="section_heading"><?php echo get_post_type(); ?> Archive (Top 20)</h3>
+                <p class="archive_sort_type clearfix js-archive_tab">
+                    <span>Sort By: </span>
+                    <a class="date active" href="#date">Date</a>
+                    <a class="popular" href="#popular">Popular</a>
+                </p>
+                <ul id="date" class="archive_link_list">
+                    <?php
+                        $paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1 ;
+                        $args = array( 'order' => 'DESC', 'orderby' => 'date', 'paged' => $paged, 'post_type' => get_post_type(), 'posts_per_page' => 20 );
+                        $my_query = NULL;
+                        $my_query = new WP_Query($args);
+                        if( $my_query->have_posts() ) {
+                        while ($my_query->have_posts()) : $my_query->the_post();
+                            echo "<li>";
+                            echo '<a href="'.get_permalink().'" class="cont_read_link">'.wp_trim_words( get_the_title(), 15 ).'</a>';
+                            echo "</li>";
+                        endwhile;
+                        }
+                        wp_reset_query();  // Restore global post data stomped by the_post().
+                    ?>
+                </ul>
+                <ul id="popular" class="archive_link_list" style="display: none;">
+                    <?php $posts_per_page = get_query_var('posts_per_page');
+                    $paged = intval(get_query_var('paged')); 
+                    $paged = ($paged) ? $paged : 1; 
+                    $args = array(
+                    'posts_per_page' => $posts_per_page,
+                    'post_type' => get_post_type(),
+                    'paged' => $paged,
+                    'more' => $more = 0,
+                    'meta_key' => 'views',
+                    'orderby' => 'meta_value_num',
+                    'order' => 'DESC',
+                    );
+                    query_posts($args);
+                    if (have_posts()) : while (have_posts()) : the_post() ;
+                    echo '<li><a href="'.get_permalink().'" class="cont_read_link">'.wp_trim_words( get_the_title(), 15 ).'</a></li>';
+                    endwhile; endif; wp_reset_query();  // Restore global post data stomped by the_post().?>
+                </ul>
             </div>
         </div>
-<?php require_once('footer.php'); ?>
+    </div>
+</div>
+<?php get_footer(); ?>

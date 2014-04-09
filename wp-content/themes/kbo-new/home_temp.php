@@ -1,4 +1,15 @@
-<?php require_once('header.php'); ?>
+<?php
+/**
+ * Template Name: test11 Page Template
+ *
+ * @package WordPress
+ * @subpackage Twenty_Twelve
+ * @since Twenty Twelve 1.0
+ */
+
+get_header();
+ ?>
+<?php //require_once('header.php'); ?>
         <div class="main homepage">
             <div class="container">
                   <ul class="home_section_wrap clearfix">
@@ -15,6 +26,20 @@
                                                       <li><a href="">The Avengers</a></li>
                                                       <li><a href="">Battleship</a></li>
                                                 </ul>
+                                          </li>
+                                          <li>
+                                                <div class="wp-polls" id="polls-3">
+                                                      <p style="text-align: center;"><strong>test question 2?</strong></p>
+                                                      <div class="wp-polls-ans" id="polls-3-ans">
+                                                            <ul class="wp-polls-ul">
+                                                                  <li>option 1 <small>(0%, 0 Votes)</small><div title="option 1 (0% | 0 Votes)" style="width: 1%;" class="pollbar"></div></li>
+                                                                  <li>option 2 <small>(0%, 0 Votes)</small><div title="option 2 (0% | 0 Votes)" style="width: 1%;" class="pollbar"></div></li>
+                                                                  <li><strong><i>option 3 <small>(0%, 0 Votes)</small></i></strong><div title="You Have Voted For This Choice - option 3 (0% | 0 Votes)" style="width: 1%;" class="pollbar"></div></li>
+                                                                  <li>option 4 <small>(100%, 0 Votes)</small><div title="option 4 (100% | 0 Votes)" style="width: 1%;" class="pollbar"></div></li>
+                                                            </ul>
+                                                            <p style="text-align: center;">Total Voters: <strong>0</strong></p>
+                                                      </div>
+                                                </div>
                                           </li>
                                           <li>
                                                 <h4><a href="#">Q. Which movie was the best action epic ever? Which movie was the best </a></h4>
@@ -140,4 +165,5 @@
                   </ul>
             </div>
         </div>
-<?php require_once('footer.php'); ?>
+<?php get_footer();?>
+<?php //require_once('footer.php'); ?>

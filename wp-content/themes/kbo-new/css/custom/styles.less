@@ -15,7 +15,7 @@
 				#font > .Century_Gothic (15px, 21px); 
 				height: 25px;
 				min-width: 80px;
-				padding: 60px 0px 0px 0px;
+				padding: 50px 0px 10px;
 				> .logo_dark {
 					display: block;
 				}
@@ -23,7 +23,7 @@
 					display: none;
 				}
 			}
-			&.active, &:hover {
+			&.active, &:hover, &.current-menu-item, &.current_page_item {
 				background-color: @html_bk_color;
 				> a {
 					color : @white;
@@ -37,35 +37,42 @@
 			}
 			&.home_logo {
 				> a {
-					padding: 20px 30px;
-					background: none;
-					height: auto;
+					background: url("../../images/logo_dark.png") no-repeat scroll center center transparent;
+				    height: 45px;
+				    padding: 20px 30px;
+				    text-indent: -9999px;
+				    width: 156px;
+				}
+				&.active, &:hover, &.current-menu-item, &.current_page_item {
+					> a {
+						background: url("../../images/logo_white.png") no-repeat scroll center center transparent;
+					}
 				}
 			}
 			&.polls {
 				> a {
-					background-position: 13px 12px;
+					background-position: 11px 6px;
 				}
 			}
 			&.update {
 				> a {
-					background-position: -86px 12px;
+					background-position: -80px 6px;
 				}
 			}
 			&.articles {
 				> a {
-					background-position: -175px 12px;
+					background-position: -175px 6px;
 				}
 			}
 			&.burning_issue {
 				> a {
-					background-position: -287px 12px;
+					background-position: -285px 6px;
 				}
 			}
 			&.about_us {
 				float: right;
 				> a {
-					background-position: -371px 12px;
+					background-position: -372px 6px;
 				}
 			}
 
@@ -113,6 +120,7 @@
 /* home page sections */
 .home_section_wrap {
 	width: 100%;
+	padding-bottom: 40px;
 	> li {
 		float: left;
 		padding: 10px 5.8%;
@@ -186,7 +194,7 @@
 	> li {
 		width: 100%;
 		height: 241px;
-		> .section_elm_img {
+		> .section_elm_img, >.wp-post-image {
 			width: 100px;
 			height: 100px;
 			float: left;
@@ -222,14 +230,25 @@
 		#font > .Century_Gothic (17px, 35px);
 		position: relative;
 		z-index: 1;
+		overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
 		input {
 			position: absolute;
 			.opacity(0);
+		    &:checked + label {
+	    		text-shadow: 1px 1px @bodyBackground;
+			}
 		}
 		> label {
 			cursor: pointer;
 			line-height: 36px;
 			margin: 0px;
+			overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		    width: 100%;
+		    display: block;
 		}
 		> a {
 			color: @black;
@@ -256,12 +275,21 @@
 			top: 60px;
 		}
 		> .view_result_link {
-			display: none;
+			bottom: 50%;
+		    margin-bottom: -22px;
+		    position: absolute;
+		    right: 0;
+		    > .voter_count {
+		    	display: block;
+		    	text-align: center;
+		    }
 		}
-		> .voter_count {
-			position: absolute;
-			right: 2px;
-			bottom: 10px;
+		> .vote_link {
+			border: 1px solid #FFFFFF;
+		    bottom: 27px;
+		    padding: 2px 4px;
+		    position: absolute;
+		    right: 29px;
 		}
 	}
 }
@@ -276,22 +304,22 @@
 	padding: 0px 0px 0px 30px;
 	float: left;
 }
-.poll_posts_wrap {
+.polls_posts_wrap {
 	.post_icon {
 		background-position: -17px -14px;
 	}
 }
-.update_posts_wrap {
+.updates_posts_wrap {
 	.post_icon {
 		background-position: -105px -14px;
 	}
 }
-.article_posts_wrap {
+.articles_posts_wrap {
 	.post_icon {
 		background-position: -201px -14px;
 	}
 }
-.burning_issue_posts_wrap {
+.issues_posts_wrap {
 	.post_icon {
 		background-position: -312px -14px;
 	}
@@ -348,6 +376,8 @@
 		color: @black;
 		#font > .Century_Gothic (21px, 27px);
 		padding: 10px;
+		overflow: hidden;
+		height: 130px;
 	}
 	> .cont_read_link {
 		bottom: 10px;
@@ -367,6 +397,7 @@
 	background: @archive_head_bk;
 	.section_heading {
 		text-align: center;
+		text-transform: capitalize;
 	}
 }
 .section_heading {
@@ -453,7 +484,7 @@
 	> p {
 		color: @black;
 		#font > .Century_Gothic (21px, 27px);
-		float: left;
+		/*float: left;*/
 		padding: 10px;
 	}
 	> .social_share {
@@ -471,26 +502,25 @@
 		background: @comment_bk;
 		padding: 10px 10px 25px;
 		margin-bottom: 15px;
-		> .comment_body {
+		.comment_body {
 			> .comment_name {
 				color: @black;
 				#font > .Century_Gothic (27px, 33px, 500);
 				padding-bottom: 10px;
-				.text-ellipsis();
+				/*.text-ellipsis();*/
 			}
 			> .comment_date {
 				color: @black;
 				#font > .Century_Gothic (10px, 14px);
 				padding-bottom: 10px;
-				.text-ellipsis();
+				/*.text-ellipsis();*/
 			}
 			> .comment_txt {
 				color: @black;
 				#font > .Century_Gothic (16px, 20px);
-				.text-ellipsis();
+				/*.text-ellipsis();*/
 			}
 		}
-
 	}
 }
 
@@ -498,11 +528,15 @@
 	background: @comment_body_bk;
 	padding: 15px;
 }
-.comment_respond {
-	> .comment_head {
+.comment_respond, .comment-respond {
+	float: left;
+	> .comment_head, > .comment-reply-title {
 		color: @black;
 		#font > .Century_Gothic (27px, 33px, 500);
 		padding-bottom: 20px;
+	}
+	> .comment-form {
+		float: left;
 	}
 }
 .comment-form {
@@ -542,6 +576,37 @@
 		}
 	}
 }
+.comment-awaiting-moderation {
+	color: @red;
+}
+.about_us_wrap {
+    background: @bodyBackground;
+    height: 340px;
+	margin: 50px 0;
+    padding: 50px 0;
+    text-align: center;
+	> h1 {
+		color: @black;
+		font-size: 40px;
+		line-height: 50px;
+	}
+}
+
+.error_page_container {
+    background: @bodyBackground;
+    height: 340px;
+    margin: 50px 0;
+    padding: 50px 0;
+    text-align: center;
+    > h2 {
+    	color: @black;
+    }
+}
+.error_page_link {
+    padding-top: 50px;
+}
+
+
 .modal_custom {
 	display: none;
 }
